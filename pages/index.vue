@@ -1,0 +1,58 @@
+<template>
+  <div class="container">
+    <div class="text-center text-info mt-3">
+      <h3>To-Do List</h3>
+    </div>
+    <div class="d-flex flex-row justify-content-center">
+      <div class="col-md-8 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                v-for="(todo, index) in listItems"
+                :key="todo"
+              >
+                <a href="#" @click="removeTodo(index)"> {{ todo }}</a>
+              </li>
+            </ul>
+
+            <form @submit.prevent="sub">
+              <div class="form-group mt-5">
+                <input
+                  type="text"
+                  placeholder="Add a To-Do"
+                  class="form-control"
+                  v-model="todo"
+                />
+                <button class="btn btn-outline-info mt-3">Add To-Do</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      todo: "",
+      listItems: ["Exercises", "Stretches", "Coding", "Tutorials"],
+    };
+  },
+  methods: {
+    sub() {
+      if (this.todo) {
+        this.listItems.push(this.todo);
+        this.todo = "";
+      }
+    },
+    removeTodo(index) {
+      this.$delete(this.listItems, index);
+    },
+  },
+};
+</script>
