@@ -13,7 +13,14 @@
                 v-for="(todo, index) in listItems"
                 :key="todo"
               >
-                <a href="#" @click="removeTodo(index)"> {{ todo }}</a>
+                {{ todo }}
+
+                <button
+                  class="btn btn-danger float-right"
+                  @click="removeTodo(index)"
+                >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
               </li>
             </ul>
 
