@@ -50,15 +50,13 @@ export default {
       listItems: ["Exercises", "Stretches", "Coding", "Tutorials"],
     };
   },
-
   methods: {
     sub() {
-      if ((this.todo = !this.listItems)) {
+      if (this.todo) {
         this.listItems.push(this.todo);
         this.todo = "";
-      } else alert("Already present");
+      }
     },
-
     removeTodo(index) {
       this.$delete(this.listItems, index);
     },
