@@ -11,9 +11,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" }
     ]
   },
@@ -21,6 +19,16 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
+
+  //   link: [{
+  //     rel: 'stylesheet',
+  //     href: 'https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap'
+  //   },
+  //   {
+  //     rel: 'stylesheet',
+  //     href: 'https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css'
+  //   },
+  // ]
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
