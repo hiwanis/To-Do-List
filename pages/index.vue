@@ -51,12 +51,14 @@ export default {
     };
   },
   methods: {
+    // The @submit.prevent function assigned as sub() triggers the form to be submitted
     sub() {
       if (this.todo) {
         this.listItems.push(this.todo);
         this.todo = "";
       }
     },
+    // The remove function will remove the array, when button pressed
     removeTodo(index) {
       this.$delete(this.listItems, index);
     },

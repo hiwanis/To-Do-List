@@ -7,14 +7,34 @@
       <div class="col-md-8 mt-5">
         <div class="card">
           <div class="card-body">
-            <input type="text" v-model="item" @keypress.enter="add" />
-            {{ item }}
             <ul class="list-group">
-              <li v-for="(item, index) in items" :key="index">
-                {{ item }}
-                <button @click="remove(index)">-</button>
+              <li
+                class="list-group-item"
+                v-for="(todo, index) in listItems"
+                :key="todo"
+              >
+                {{ todo }}
+
+                <button
+                  class="btn btn-danger float-right"
+                  @click="removeTodo(index)"
+                >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
               </li>
             </ul>
+
+            <form @submit.prevent="sub">
+              <div class="form-group mt-5">
+                <input
+                  type="text"
+                  placeholder="Add a To-Do"
+                  class="form-control"
+                  v-model="todo"
+                />
+                <button class="btn btn-outline-info mt-3">Add To-Do</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -26,16 +46,21 @@
 export default {
   data() {
     return {
-      items: [],
-      item: "",
+      todo: "",
+      listItems: trim()[("Exercises", "Stretches", "Coding", "Tutorials")],
     };
   },
   methods: {
-    add(item) {
-      this.items.push(item);
+    // The @submit.prevent function assigned as sub() triggers the form to be submitted
+    sub() {
+      if (this.todo == !this.listItems) {
+        this.listItems.push(this.todo);
+        this.todo = "";
+      }
     },
-    remove(index) {
-      this.items.splice(index, 1);
+    // The remove function will remove the array, when button pressed
+    removeTodo(index) {
+      this.$delete(this.listItems, index);
     },
   },
 };
