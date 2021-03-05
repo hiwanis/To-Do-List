@@ -53,9 +53,14 @@ export default {
   methods: {
     // The @submit.prevent function assigned as sub() triggers the form to be submitted
     sub() {
-      if (this.todo) {
+      if (
+        !this.listItems.includes(this.todo.trim()) &&
+        this.todo.trim() != (null || "")
+      ) {
         this.listItems.push(this.todo);
         this.todo = "";
+      } else {
+        alert("error");
       }
     },
     // The remove function will remove the array, when button pressed

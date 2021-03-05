@@ -47,15 +47,17 @@ export default {
   data() {
     return {
       todo: "",
-      listItems: trim()[("Exercises", "Stretches", "Coding", "Tutorials")],
+      listItems: ["Exercises", "Stretches", "Coding", "Tutorials"],
     };
   },
   methods: {
     // The @submit.prevent function assigned as sub() triggers the form to be submitted
     sub() {
-      if (this.todo == !this.listItems) {
+      if (!this.listItems.includes(this.todo.trim())) {
         this.listItems.push(this.todo);
         this.todo = "";
+      } else {
+        alert("error");
       }
     },
     // The remove function will remove the array, when button pressed
